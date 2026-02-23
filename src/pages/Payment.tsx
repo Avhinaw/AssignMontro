@@ -41,8 +41,8 @@ const PaymentPage = () => {
       <div className="page-header-actions">
         <h1 className="page-title">Payment</h1>
         <div className="header-buttons">
-          <button className="btn-secondary"><Icon icon="lucide:upload" /> Export CSV</button>
-          <button className="btn-primary"><Icon icon="lucide:plus" /> Add Payment</button>
+          <button className="btn-secondary"><Icon icon="lucide:upload" /> <span className="hide-mobile">Export CSV</span></button>
+          <button className="btn-primary"><Icon icon="lucide:plus" /> <span>Add Payment</span></button>
         </div>
       </div>
 

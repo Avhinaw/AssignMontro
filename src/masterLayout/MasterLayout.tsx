@@ -1,10 +1,10 @@
 import React, { useState, type PropsWithChildren } from "react";
 import { Icon } from "@iconify/react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../App.css";
-const MasterLayout = ({ children } : PropsWithChildren) => {
-  const [sidebarActive] = useState(false);
-  // const navigate = useNavigate();
+
+const MasterLayout = ({ children }: PropsWithChildren) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const menuItems = [
     { name: "Dashboard", icon: "lucide:layout-dashboard", path: "/" },
@@ -20,11 +20,20 @@ const MasterLayout = ({ children } : PropsWithChildren) => {
 
   return (
     <div className="layout-wrapper">
-      <aside className={`sidebar ${sidebarActive ? "collapsed" : ""}`}>
+      {/* Mobile Overlay */}
+      <div 
+        className={`sidebar-overlay ${sidebarOpen ? "active" : ""}`} 
+        onClick={() => setSidebarOpen(false)}
+      ></div>
+
+      <aside className={`sidebar ${sidebarOpen ? "mobile-open" : ""}`}>
         <div className="sidebar-header">
           <Link to="/" className="sidebar-logo">
             <img src="./Layer_1.png" alt="montr" />
           </Link>
+          <button className="mobile-close" onClick={() => setSidebarOpen(false)}>
+            <Icon icon="lucide:x" />
+          </button>
         </div>
 
         <nav className="sidebar-nav">
@@ -34,6 +43,7 @@ const MasterLayout = ({ children } : PropsWithChildren) => {
                 <NavLink 
                   to={item.path} 
                   className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
+                  onClick={() => setSidebarOpen(false)}
                 >
                   <Icon icon={item.icon} className="nav-icon" />
                   <span className="nav-label">{item.name}</span>
@@ -45,6 +55,14 @@ const MasterLayout = ({ children } : PropsWithChildren) => {
       </aside>
 
       <main className="main-content">
+        {/* Mobile Header Toggle */}
+        <header className="mobile-top-bar">
+          <button className="menu-toggle" onClick={() => setSidebarOpen(true)}>
+            <Icon icon="lucide:menu" />
+          </button>
+          <img src="./Layer_1.png" alt="logo" className="mobile-logo" />
+        </header>
+
         <div className="page-body">{children}</div>
       </main>
     </div>
