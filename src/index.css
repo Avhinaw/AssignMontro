@@ -1,0 +1,99 @@
+:root {
+  --sidebar-bg: #ffffff;
+  --sidebar-width: 260px;
+  --primary-green: #00ca99; /* The mint color in your logo */
+  --text-main: #333333;
+  --text-muted: #666666;
+  --active-bg: #f3f4f6;
+  --border-light: #f0f0f0;
+}
+
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  transition: all 0.3s ease;
+}
+
+/* Logo Styling */
+.sidebar-logo {
+  padding: 0 24px 40px 24px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.logo-m { color: #000; }
+.logo-dot { color: var(--primary-green); margin: 0 2px; }
+.logo-text { color: #000; }
+
+/* Nav Items */
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  margin: 4px 12px; /* Gives space for the pill effect */
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+/* THE EXACT ACTIVE STATE FROM FIGMA */
+.nav-item.active {
+  background-color: #f3fcf9; /* Light mint tint */
+  color: var(--primary-green);
+  border-left: 4px solid var(--primary-green);
+  border-radius: 0 8px 8px 0; /* Flat on the left, rounded on right */
+  margin-left: 0; /* Touches the very edge */
+  padding-left: 20px; /* Adjust padding to compensate for border */
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.nav-label {
+  flex: 1;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-navbar {
+    padding: 15px 30px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
