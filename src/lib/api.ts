@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3000/api/payments';
+// const API_URL = 'http://localhost:3000/api/payments';
+const API_URL = 'https://assignmontrobe.onrender.com/api/payments';
+
 
 export const fetchPayments = async () => {
     const response = await fetch(API_URL);
