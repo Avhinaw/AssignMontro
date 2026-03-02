@@ -1,4 +1,4 @@
-import React, { useState, type PropsWithChildren } from "react";
+import { useState, type PropsWithChildren } from "react";
 import { Icon } from "@iconify/react";
 import { Link, NavLink } from "react-router-dom";
 import "../App.css";
