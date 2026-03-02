@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import MasterLayout from './masterLayout/MasterLayout'
 import Payment from './pages/Payment';
